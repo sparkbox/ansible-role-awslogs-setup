@@ -70,10 +70,7 @@
     mode: 0644
 
 - name: enable the agent daemon
-  service:
-    name: awslogs
-    enabled: yes
-    state: started
+  command: "{{ awslogs_setup_nanny_service_init_script }} start"
 
 # not needed if we setup a systemd daemon
 # ansible_service_mgr == "systemd"
